@@ -1,0 +1,48 @@
+1. Prerequisites Installation:
+
+# Install Python Kafka client
+pip install kafka-python
+
+2. Create a directory and download Kafka:
+
+# Create and move to a directory for Kafka
+mkdir ~/kafka
+cd ~/kafka
+
+# Download Kafka
+wget https://downloads.apache.org/kafka/3.6.1/kafka_2.13-3.6.1.tgz
+
+# Extract Kafka
+tar -xzf kafka_2.13-3.6.1.tgz
+
+# Move into Kafka directory
+cd kafka_2.13-3.6.1
+
+3. Start Zookeeper (in one terminal):
+
+bin/zookeeper-server-start.sh config/zookeeper.properties
+
+4. Start Kafka Server (in another terminal):
+
+bin/kafka-server-start.sh config/server.properties
+
+5. Create a Topic (in a third terminal):
+
+bin/kafka-topics.sh --create --topic test_topic --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
+
+# Verify the topic was created
+bin/kafka-topics.sh --list --bootstrap-server localhost:9092
+
+
+
+
+
+Test the setup:
+
+
+#Open two terminal windows
+#In the first terminal, run the consumer:
+python consumer.py
+
+#In the second terminal, run the producer:
+python producer.py
