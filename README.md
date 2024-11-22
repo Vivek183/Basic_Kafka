@@ -1,0 +1,1 @@
+A simple demonstration of Apache Kafka messaging system using Python, implementing basic producer and consumer functionality.Steps to use the resources present in repo are mentioned in instructions.txt
